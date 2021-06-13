@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import logo from "./assets/img/logo.png";
-import musicImage from "./assets/img/music.png";
+import musicImage from "./assets/img/musica.svg";
 import "./App.css";
 
+//boton
+import { BotonTips } from "./component/Boton";
 //iconos
 import {
   FaSpotify,
@@ -35,11 +36,13 @@ function App() {
     `&visual=false`;
 
   // donde estoy en este momento:
-  const busking = "Riva del Garda 🇮🇹";
+  const busking = "Riva del Garda";
+  const bandera = "🇮🇹";
+  const googleMapsLink = `https://www.google.com/maps/search/${busking}/`
 
   useEffect(() => {
     //cambiar titulo segun donde estoy en el momento
-    document.title = `Francisco Xifra - Musician currently busking in ${busking}`;
+    document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
   }, []);
 
   return (
@@ -50,33 +53,40 @@ function App() {
           alt="decorative music icon"
           className="musicIcon"
         />
-        <img src={logo} alt="Logo" />
+        <h1 className="logo">
+          <span className="logoFrancisco">Francisco</span> <br/>
+          <span className="logoXifra">Xifra</span>
+        </h1>
         <div className="locationContainer">
           <p className="currentlyParagraph">Currently busking in:</p>
-          <h2 className="buskingCity">{busking}</h2>
+          <h2 className="buskingCity"><a href={googleMapsLink} target="_BLANK" className="mapsLink" rel="noreferrer">{busking} {bandera}</a></h2>
         </div>
+        <BotonTips />
         <div className="reproductor">
           <iframe
             title="Soundcloud"
             width="100%"
             height="100%"
             scrolling="no"
-            frameborder="no"
+            frameBorder="no"
             allow="autoplay"
             src={urlReproductor}
           />
         </div>
+        
+         
+        <p className="currentlyParagraph">Find me on:</p>
         <div className="iconosContainer">
-          <a href="https://instagram.com/franxifra">
+          <a href="https://instagram.com/franxifra" target="_BLANK" rel="noreferrer">
             <FaInstagram className="icono" />
           </a>
-          <a href="#s">
+          <a href="#S" target="_BLANK" rel="noreferrer">
             <FaSpotify className="icono" />
           </a>{" "}
-          <a href="https://www.youtube.com/user/franxifra/videos">
+          <a href="https://www.youtube.com/user/franxifra/videos" target="_BLANK" rel="noreferrer">
             <FaYoutube className="icono" />
           </a>
-          <a href="https://soundcloud.com/franxifra/">
+          <a href="https://soundcloud.com/franxifra/" target="_BLANK" rel="noreferrer">
             <FaSoundcloud className="icono" />
           </a>
         </div>

@@ -2,9 +2,21 @@
 .app {
   text-align: center;
   background-color: #282c34;
-
+  font-family: 'Poppins', sans-serif;
 }
-
+.logo {
+  line-height: 75px;
+  margin: 0px;
+}
+.logoFrancisco {
+  font-weight: 900;
+  font-size: 50px;
+}
+.logoXifra {
+  font-weight: 900;
+  font-size: 100px;
+  color: #DD8D38;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -31,27 +43,31 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top:30px
+  margin-top:10px
 }
 
 .icono {
   color: #EFEAE6;
-  font-size: calc(20px + 6vmin);
+  font-size: calc(20px + 8vmin);
   margin-right: 20px;
 
 }
-
+.icono:hover {
+  color:#ffc57d;
+  
+}
 .musicIcon {
-  width: 5vmin;
+  width: 50px;
 }
 
 .buskingCity{
   margin-top: 0;
+  margin-bottom: 10px
 }
 
 .currentlyParagraph {
   margin-bottom: 0;
-  font-size: calc(7px + 2vmin);
+  font-size: .8em;
 }
 
 .reproductor {
@@ -59,4 +75,49 @@
   min-width: 300px;
   width: 600px;
   height: 300px;
+}
+
+.tipMe {
+  background-color:#C98C41;
+  border-radius: 5px;
+  color: #282c34;
+  margin-top: 0;
+  margin-bottom:40px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 500;
+  width: 200px;
+  
+}
+
+.tipMe:hover {
+  background-color:#ffc57d;
+  -webkit-box-shadow: 0px 10px 13px -7px #0000008c, 5px 5px 15px 5px rgba(0,0,0,0); 
+box-shadow: 0px 10px 13px -7px #0000008c, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.linkTip {
+  text-decoration: none;
+}
+
+.tipMeTexto {
+  flex:2;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.buskIcon {
+  background-color: rgba(40, 44, 52, 0.17);
+  flex:1;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.mapsLink {
+  text-decoration: none;
+  color:#EFEAE6;
 }
