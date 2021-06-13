@@ -70,7 +70,7 @@ function App() {
           <a href="https://instagram.com/franxifra">
             <FaInstagram className="icono" />
           </a>
-          <a href="#">
+          <a href="#s">
             <FaSpotify className="icono" />
           </a>{" "}
           <a href="https://www.youtube.com/user/franxifra/videos">
