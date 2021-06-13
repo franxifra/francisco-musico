@@ -1,10 +1,10 @@
 import React from "react";
 import iconoBusk from "./busk.svg";
 
-export const BotonTips = () => {
+export const BotonTips = ({link}) => {
   return (
     <a
-      href="https://busk.co/22427/qr"
+      href={link}
       alt="Secure payments through busk.co tips"
       className="linkTip"
       target="_BLANK"

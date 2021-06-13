@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 import musicImage from "./assets/img/musica.svg";
 import "./App.css";
 
@@ -13,11 +14,71 @@ import {
 } from "react-icons/fa";
 
 function App() {
+  
+
+  // donde estoy en este momento:
+
+  //estados iniciales
+  const [busking, setBusking] = useState("...");
+  const [bandera, setBandera] = useState("");
+  const [live, setLive] = useState(false);
+  const [soundcloudLink, setSoundcloudLink] = useState(false);
+  const [tipMeLink, setTipMeLink] = useState("");
+  console.log(live);
+
+
+
+  const googleMapsLink = `https://www.google.com/maps/search/${busking} ${bandera}/`;
+
+  //convertir codigo pais a Emoji Bandera
+  function getFlagEmoji(countryCode) {
+    const codePoints = countryCode
+      .toUpperCase()
+      .split('')
+      .map(char =>  127397 + char.charCodeAt());
+    return String.fromCodePoint(...codePoints);
+  }
+
+  //sacar datos de Google Sheets
+  async function getDataGoogleSheets() {
+    try {
+      let response = await fetch(
+        "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/1/public/full?alt=json"
+      );
+      let responseJson = await response.json();
+      console.log(responseJson.feed);
+      console.log(responseJson.feed.entry[5].content.$t);
+
+      
+      let buskingIn = responseJson.feed.entry[5].content.$t;
+      let bandera = responseJson.feed.entry[6].content.$t;
+      let soundcloudLink = responseJson.feed.entry[7].content.$t;
+      let liveIn = responseJson.feed.entry[8].content.$t;
+      let tipMeLink = responseJson.feed.entry[9].content.$t;
+      setBusking(buskingIn);
+      setBandera(bandera);
+      setLive(liveIn);
+      setTipMeLink(tipMeLink);
+      setSoundcloudLink(encodeURIComponent(soundcloudLink));
+
+      return;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    //cambiar titulo segun donde estoy en el momento
+    getDataGoogleSheets();
+    document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   //url de reproductor
   let urlReproductor =
     `https://w.soundcloud.com/player` +
     //url de la playlist
-    `?url=https://soundcloud.com/franxifra/sets/busking-2023` +
+    `?url=${soundcloudLink}` +
     //color
     `&color=C98C41` +
     //autoplay
@@ -35,16 +96,6 @@ function App() {
     //no mostrar imagen
     `&visual=false`;
 
-  // donde estoy en este momento:
-  const busking = "Riva del Garda";
-  const bandera = "🇮🇹";
-  const googleMapsLink = `https://www.google.com/maps/search/${busking}/`
-
-  useEffect(() => {
-    //cambiar titulo segun donde estoy en el momento
-    document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
-  }, []);
-
   return (
     <div className="app">
       <div className="appHeader">
@@ -54,14 +105,23 @@ function App() {
           className="musicIcon"
         />
         <h1 className="logo">
-          <span className="logoFrancisco">Francisco</span> <br/>
+          <span className="logoFrancisco">Francisco</span> <br />
           <span className="logoXifra">Xifra</span>
         </h1>
         <div className="locationContainer">
           <p className="currentlyParagraph">Currently busking in:</p>
-          <h2 className="buskingCity"><a href={googleMapsLink} target="_BLANK" className="mapsLink" rel="noreferrer">{busking} {bandera}</a></h2>
+          <h2 className="buskingCity">
+            <a
+              href={googleMapsLink}
+              target="_BLANK"
+              className="mapsLink"
+              rel="noreferrer"
+            >
+              {busking} {getFlagEmoji(bandera)}
+            </a>
+          </h2>
         </div>
-        <BotonTips />
+        <BotonTips link={tipMeLink}/>
         <div className="reproductor">
           <iframe
             title="Soundcloud"
@@ -70,23 +130,34 @@ function App() {
             scrolling="no"
             frameBorder="no"
             allow="autoplay"
-            src={urlReproductor}
+            src={soundcloudLink ? urlReproductor : ""}
           />
         </div>
-        
-         
+
         <p className="currentlyParagraph">Find me on:</p>
         <div className="iconosContainer">
-          <a href="https://instagram.com/franxifra" target="_BLANK" rel="noreferrer">
+          <a
+            href="https://instagram.com/franxifra"
+            target="_BLANK"
+            rel="noreferrer"
+          >
             <FaInstagram className="icono" />
           </a>
           <a href="#S" target="_BLANK" rel="noreferrer">
             <FaSpotify className="icono" />
           </a>{" "}
-          <a href="https://www.youtube.com/user/franxifra/videos" target="_BLANK" rel="noreferrer">
+          <a
+            href="https://www.youtube.com/user/franxifra/videos"
+            target="_BLANK"
+            rel="noreferrer"
+          >
             <FaYoutube className="icono" />
           </a>
-          <a href="https://soundcloud.com/franxifra/" target="_BLANK" rel="noreferrer">
+          <a
+            href="https://soundcloud.com/franxifra/"
+            target="_BLANK"
+            rel="noreferrer"
+          >
             <FaSoundcloud className="icono" />
           </a>
         </div>
