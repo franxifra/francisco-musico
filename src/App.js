@@ -139,7 +139,7 @@ function App() {
           <a
             href="https://instagram.com/franxifra"
             target="_BLANK"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <FaInstagram className="icono" />
           </a>
@@ -149,14 +149,14 @@ function App() {
           <a
             href="https://www.youtube.com/user/franxifra/videos"
             target="_BLANK"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <FaYoutube className="icono" />
           </a>
           <a
             href="https://soundcloud.com/franxifra/"
             target="_BLANK"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <FaSoundcloud className="icono" />
           </a>
