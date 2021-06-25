@@ -46,8 +46,6 @@ function App() {
         "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/1/public/full?alt=json"
       );
       let responseJson = await response.json();
-      console.log(responseJson.feed);
-      console.log(responseJson.feed.entry[5].content.$t);
 
       
       let buskingIn = responseJson.feed.entry[5].content.$t;
@@ -95,7 +93,7 @@ function App() {
     `&show_teaser=false` +
     //no mostrar imagen
     `&visual=false`;
-
+console.log(urlReproductor)
   return (
     <div className="app">
       <div className="appHeader">
@@ -143,11 +141,11 @@ function App() {
           >
             <FaInstagram className="icono" />
           </a>
-          <a href="#S" target="_BLANK" rel="noreferrer">
+          <a href="https://open.spotify.com/artist/6MgxRbMya8hZ7PqXT4wS2o?si=oEJW2uyVTeOmDudg5y6Rcw&dl_branch=1" target="_BLANK" rel="noreferrer">
             <FaSpotify className="icono" />
           </a>{" "}
           <a
-            href="https://www.youtube.com/user/franxifra/videos"
+            href="https://www.youtube.com/c/FranciscoXifra/featured"
             target="_BLANK"
             rel="noopener noreferrer"
           >
