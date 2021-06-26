@@ -3,27 +3,6 @@
   text-align: center;
   background-color: #282c34;
   font-family: 'Poppins', sans-serif;
-}
-.logo {
-  line-height: 75px;
-  margin: 0px;
-}
-.logoFrancisco {
-  font-weight: 900;
-  font-size: 50px;
-}
-.logoXifra {
-  font-weight: 900;
-  font-size: 100px;
-  color: #DD8D38;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.appHeader {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,8 +11,10 @@
   font-size: calc(10px + 2vmin);
   color: #EFEAE6;
   padding: 20px 0;
-
 }
+
+
+
 
 .locationContainer {
   margin: 10px 0;
@@ -56,9 +37,7 @@
   color:#ffc57d;
   
 }
-.musicIcon {
-  width: 50px;
-}
+
 
 .buskingCity{
   margin-top: 0;

@@ -1,0 +1,16 @@
+.logo {
+    line-height: 75px;
+    margin: 0px;
+  }
+  .logoFrancisco {
+    font-weight: 900;
+    font-size: 50px;
+  }
+  .logoXifra {
+    font-weight: 900;
+    font-size: 100px;
+    color: #DD8D38;
+  }
+  .musicIcon {
+    width: 50px;
+  }
