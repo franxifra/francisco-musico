@@ -1,0 +1,23 @@
+.show {
+    flex-grow: 1;
+    width: 33%;
+    border-bottom: solid #fff 1px;
+    padding:15px 0;
+    font-size: 18px;
+}
+.show:nth-last-child(-n+3){
+    border-bottom: none;
+}
+.show:nth-child(-n+3) {
+    border-bottom: solid #fff 1px;
+}
+.show-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:90vw;
+    max-width: 600px;
+    justify-content: center;
+    margin-bottom: 20px;
+   
+}

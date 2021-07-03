@@ -1,14 +1,16 @@
-import React from "react"
-import { useEffect, useState } from "react"
+import React from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 //boton
-import { BotonTips } from "./component/Boton/Boton"
+import { BotonTips } from "./component/Boton/Boton";
 
-import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica"
-import RedesSociales from "./component/RedesSociales/RedesSociales"
-import Logo from "./component/Logo/Logo"
-import BuskingIn from './component/BuskingIn/BuskingIn'
+import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica";
+import RedesSociales from "./component/RedesSociales/RedesSociales";
+import Logo from "./component/Logo/Logo";
+import BuskingIn from "./component/BuskingIn/BuskingIn";
+import ProximosShows from "./component/ProximosShows/ProximosShows";
+import JumpingDots from "./component/JumpingDots/JumpingDots";
 
 function App() {
   // donde estoy en este momento:
@@ -16,13 +18,9 @@ function App() {
   //estados iniciales
   const [busking, setBusking] = useState("");
   const [bandera, setBandera] = useState("");
-  const [live, setLive] = useState(false);
   const [soundcloudLink, setSoundcloudLink] = useState(false);
   const [tipMeLink, setTipMeLink] = useState("");
-  console.log(live);
-
-
- 
+  const [dataShows, setDatashows] = useState([]);
 
   //sacar datos de Google Sheets
   async function getDataGoogleSheets() {
@@ -35,11 +33,9 @@ function App() {
       let buskingIn = responseJson.feed.entry[5].content.$t;
       let bandera = responseJson.feed.entry[6].content.$t;
       let soundcloudLink = responseJson.feed.entry[7].content.$t;
-      let liveIn = responseJson.feed.entry[8].content.$t;
       let tipMeLink = responseJson.feed.entry[9].content.$t;
       setBusking(buskingIn);
       setBandera(bandera);
-      setLive(liveIn);
       setTipMeLink(tipMeLink);
       setSoundcloudLink(encodeURIComponent(soundcloudLink));
 
@@ -48,22 +44,44 @@ function App() {
       console.error(error);
     }
   }
+  // sacar datos google sheets shows
+  async function getDataShows() {
+    try {
+      let response = await fetch(
+        "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/2/public/full?alt=json"
+      );
+      let responseJson = await response.json();
+
+      return setDatashows(responseJson);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     //cambiar titulo segun donde estoy en el momento
     getDataGoogleSheets();
+    getDataShows();
     document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //url de reproductor
+  console.log(dataShows);
 
   return (
     <div className="app">
-      <Logo/>
-      <BuskingIn busking={busking} bandera={bandera}/>
+      <Logo />
+      {busking || bandera || tipMeLink ? (
+        <>
+          <BuskingIn busking={busking} bandera={bandera} />
+          <ReproductorMusica link={soundcloudLink} />
+        </>
+      ) : (
+        <JumpingDots />
+      )}
       <BotonTips link={tipMeLink} />
-      <ReproductorMusica link={soundcloudLink} />
+      <ProximosShows data={dataShows} lugar={busking} />
       <RedesSociales />
     </div>
   );
