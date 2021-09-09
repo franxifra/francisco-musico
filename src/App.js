@@ -16,70 +16,66 @@ function App() {
   // donde estoy en este momento:
 
   //estados iniciales
-  const [busking, setBusking] = useState("");
-  const [bandera, setBandera] = useState("");
-  const [soundcloudLink, setSoundcloudLink] = useState(false);
-  const [tipMeLink, setTipMeLink] = useState("");
+  const [busking, setBusking] = useState("Alghero, Sardegna");
+  const [bandera, setBandera] = useState("IT");
+  const [soundcloudLink, setSoundcloudLink] = useState("https://soundcloud.com/franxifra/sets/busking-2023");
+  const [tipMeLink, setTipMeLink] = useState("https://busk.co/22427/qr");
   const [dataShows, setDatashows] = useState([]);
 
-  //sacar datos de Google Sheets
-  async function getDataGoogleSheets() {
-    try {
-      let response = await fetch(
-        "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/1/public/full?alt=json"
-      );
-      let responseJson = await response.json();
+  // //sacar datos de Google Sheets
+  // async function getDataGoogleSheets() {
+  //   try {
+  //     let response = await fetch(
+  //       "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/1/public/full?alt=json"
+  //     );
+  //     let responseJson = await response.json();
 
-      let buskingIn = responseJson.feed.entry[5].content.$t;
-      let bandera = responseJson.feed.entry[6].content.$t;
-      let soundcloudLink = responseJson.feed.entry[7].content.$t;
-      let tipMeLink = responseJson.feed.entry[9].content.$t;
-      setBusking(buskingIn);
-      setBandera(bandera);
-      setTipMeLink(tipMeLink);
-      setSoundcloudLink(encodeURIComponent(soundcloudLink));
+  //     let buskingIn = responseJson.feed.entry[5].content.$t;
+  //     let bandera = responseJson.feed.entry[6].content.$t;
+  //     let soundcloudLink = responseJson.feed.entry[7].content.$t;
+  //     let tipMeLink = responseJson.feed.entry[9].content.$t;
+  //     setBusking(buskingIn);
+  //     setBandera(bandera);
+  //     setTipMeLink(tipMeLink);
+  //     setSoundcloudLink(encodeURIComponent(soundcloudLink));
 
-      return;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  // sacar datos google sheets shows
-  async function getDataShows() {
-    try {
-      let response = await fetch(
-        "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/2/public/full?alt=json"
-      );
-      let responseJson = await response.json();
+  //     return;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // // sacar datos google sheets shows
+  // async function getDataShows() {
+  //   try {
+  //     let response = await fetch(
+  //       "https://spreadsheets.google.com/feeds/cells/1OpuHYSo71Hd7FhGC7AjIG9wzUvKy15_MxM6szDRKSUU/2/public/full?alt=json"
+  //     );
+  //     let responseJson = await response.json();
 
-      return setDatashows(responseJson);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     return setDatashows(responseJson);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
-  useEffect(() => {
-    //cambiar titulo segun donde estoy en el momento
-    getDataGoogleSheets();
-    getDataShows();
-    document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   //cambiar titulo segun donde estoy en el momento
+  //   getDataGoogleSheets();
+  //   getDataShows();
+  //   document.title = `Francisco Xifra - Musician currently busking in ${busking} ${bandera}`;
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
-  //url de reproductor
-  console.log(dataShows);
+  // //url de reproductor
+  // console.log(dataShows);
 
   return (
     <div className="app">
       <Logo />
-      {busking || bandera || tipMeLink ? (
-        <>
-          <BuskingIn busking={busking} bandera={bandera} />
-          <ReproductorMusica link={soundcloudLink} />
-        </>
-      ) : (
-        <JumpingDots />
-      )}
+
+      <BuskingIn busking={busking} bandera={bandera} />
+      <ReproductorMusica link={soundcloudLink} />
+
       <BotonTips link={tipMeLink} />
       <ProximosShows data={dataShows} lugar={busking} />
       <RedesSociales />
