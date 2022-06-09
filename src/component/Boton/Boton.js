@@ -11,7 +11,7 @@ export const BotonTips = ({link}) => {
       rel="noreferrer"
     >
       <div className="tipMe">
-        <div className="tipMeTexto">Tip me </div>
+        <div className="tipMeTexto">Give a donation! </div>
         <div className="buskIcon">
           <img src={iconoBusk} alt="busk.co icon" width="35" />
         </div>

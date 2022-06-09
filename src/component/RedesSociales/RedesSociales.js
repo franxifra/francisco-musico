@@ -5,6 +5,8 @@ import {
   FaInstagram,
   FaYoutube,
   FaSoundcloud,
+  FaApple,
+  FaPatreon
 } from "react-icons/fa";
 
 const RedesSociales = () => {
@@ -25,7 +27,15 @@ const RedesSociales = () => {
           rel="noreferrer"
         >
           <FaSpotify className="icono" />
-        </a>{" "}
+        </a>
+        <a
+          href="https://music.apple.com/ar/artist/francisco-xifra/1573032038"
+          target="_BLANK"
+          rel="noopener noreferrer"
+        >
+          <FaApple className="icono" />
+        </a>
+
         <a
           href="https://www.youtube.com/c/FranciscoXifra/featured"
           target="_BLANK"
@@ -33,13 +43,9 @@ const RedesSociales = () => {
         >
           <FaYoutube className="icono" />
         </a>
-        <a
-          href="https://soundcloud.com/franxifra/"
-          target="_BLANK"
-          rel="noopener noreferrer"
-        >
-          <FaSoundcloud className="icono" />
-        </a>
+
+       
+        
       </div>
     </div>
   );

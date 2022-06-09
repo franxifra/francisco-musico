@@ -1,24 +1,27 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "./App.css";
 
 //boton
 import { BotonTips } from "./component/Boton/Boton";
 
-import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica";
+// import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica";
 import RedesSociales from "./component/RedesSociales/RedesSociales";
 import Logo from "./component/Logo/Logo";
 import BuskingIn from "./component/BuskingIn/BuskingIn";
 import ProximosShows from "./component/ProximosShows/ProximosShows";
-import JumpingDots from "./component/JumpingDots/JumpingDots";
+// import JumpingDots from "./component/JumpingDots/JumpingDots";
+import { BotonPatreon } from "./component/Boton/botonPatreon";
 
 function App() {
   // donde estoy en este momento:
 
   //estados iniciales
-  const [busking, setBusking] = useState("Alghero, Sardegna");
+  const [busking, setBusking] = useState("Riva del Garda, Trento");
   const [bandera, setBandera] = useState("IT");
-  const [soundcloudLink, setSoundcloudLink] = useState("https://soundcloud.com/franxifra/sets/busking-2023");
+  const [soundcloudLink, setSoundcloudLink] = useState(
+    "https://soundcloud.com/franxifra/sets/busking-2023"
+  );
   const [tipMeLink, setTipMeLink] = useState("https://busk.co/22427/qr");
   const [dataShows, setDatashows] = useState([]);
 
@@ -72,13 +75,26 @@ function App() {
   return (
     <div className="app">
       <Logo />
-
       <BuskingIn busking={busking} bandera={bandera} />
-      <ReproductorMusica link={soundcloudLink} />
 
-      <BotonTips link={tipMeLink} />
-      <ProximosShows data={dataShows} lugar={busking} />
+      <iframe
+        className="video"
+        width="100%"
+        src="https://www.youtube.com/embed/videoseries?list=PL28qvn4LcCEs_pHWqXy4luX9l6oyyvC58"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
       <RedesSociales />
+
+
+  
+      {/* <ReproductorMusica link={soundcloudLink} /> */}
+
+      <ProximosShows data={dataShows} lugar={busking} />
+      <BotonPatreon/>
+      <BotonTips link={tipMeLink} />
     </div>
   );
 }

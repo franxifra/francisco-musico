@@ -10,14 +10,13 @@
   font-size: calc(10px + 2vmin);
   color: #EFEAE6;
   padding: 20px 0;
-  padding-bottom: 200px;
 }
 
 
 
 
 .locationContainer {
-  margin: 10px 0;
+  margin: 0;
 }
 
 .iconosContainer {
@@ -58,23 +57,22 @@
 }
 
 .tipMe {
-  background-color: #C98C41;
-  color: #282c34;
+  background-color: #EE5830;
+  color: white;
   display: flex;
 
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 400;
-  width: 200px;
-  position: fixed;
-  bottom: 40px;
-  left: calc(50% - 100px);
+  width:250px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
   border-radius: 30px;
+  margin: 30px 0;
+  margin-top: 0px;
 
 }
 
 .tipMe:hover {
-  background-color: #ffc57d;
+  background-color: #e95026;;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
 
@@ -86,7 +84,7 @@
 }
 
 .tipMeTexto {
-  flex: 2;
+  flex: 3;
   padding: 15px;
   text-decoration: none;
 }
@@ -94,21 +92,13 @@
 .buskIcon {
   background-color: rgba(40, 44, 52, 0.17);
   flex: 1;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   border-radius: 0 30px 30px 0;
 
 }
 
-.buskIcon img {
- -webkit-animation: rotating 4s linear infinite;
-  -moz-animation: rotating 4s linear infinite;
-  -ms-animation: rotating 4s linear infinite;
-  -o-animation: rotating 4s linear infinite;
-  animation: rotating 4s linear infinite;
-
-}
 
 .mapsLink {
   text-decoration: none;
@@ -142,4 +132,33 @@
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.video {
+  max-width: 550px;
+  margin: 20px 0 0 0;
+  min-height: 315px;
+}
+
+@media screen and (max-width:600px) {
+  .video {
+    max-width: 90%;
+    min-height: 200px;
+
+  }
+}
+
+.iconoPatreon {
+  color:white;
+  font-size: 35px;
+}
+
+.patreon {
+  background-color: rgb(255, 66, 77);
+  color:white;
+  margin-top: 30px;
+}
+
+.patreon:hover {
+  background-color:#ED473D
 }
