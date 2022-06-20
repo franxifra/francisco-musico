@@ -5,13 +5,12 @@ import "./App.css";
 //boton
 import { BotonTips } from "./component/Boton/Boton";
 
-// import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica";
+import ReproductorMusica from "./component/ReproductorMusica/ReproductorMusica";
 import RedesSociales from "./component/RedesSociales/RedesSociales";
 import Logo from "./component/Logo/Logo";
 import BuskingIn from "./component/BuskingIn/BuskingIn";
 import ProximosShows from "./component/ProximosShows/ProximosShows";
 // import JumpingDots from "./component/JumpingDots/JumpingDots";
-import { BotonPatreon } from "./component/Boton/botonPatreon";
 
 function App() {
   // donde estoy en este momento:
@@ -90,11 +89,11 @@ function App() {
 
 
   
-      {/* <ReproductorMusica link={soundcloudLink} /> */}
+      
 
       <ProximosShows data={dataShows} lugar={busking} />
-      <BotonPatreon/>
       <BotonTips link={tipMeLink} />
+      <ReproductorMusica link={soundcloudLink} /> 
     </div>
   );
 }

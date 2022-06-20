@@ -32,6 +32,12 @@
   margin-right: 20px;
 
 }
+@media screen and (min-width: 1000px) {
+  .icono {
+    font-size: 80px;
+  
+  }
+}
 
 .icono:hover {
   color: #ffc57d;
@@ -54,50 +60,9 @@
   min-width: 300px;
   width: 600px;
   height: 400px;
+  margin-top: 30px;
 }
 
-.tipMe {
-  background-color: #EE5830;
-  color: white;
-  display: flex;
-
-  font-size: 16px;
-  font-weight: 400;
-  width:250px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-  border-radius: 30px;
-  margin: 30px 0;
-  margin-top: 0px;
-
-}
-
-.tipMe:hover {
-  background-color: #e95026;;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-
-
-
-}
-
-.linkTip {
-  text-decoration: none;
-}
-
-.tipMeTexto {
-  flex: 3;
-  padding: 15px;
-  text-decoration: none;
-}
-
-.buskIcon {
-  background-color: rgba(40, 44, 52, 0.17);
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  border-radius: 0 30px 30px 0;
-
-}
 
 
 .mapsLink {
@@ -146,19 +111,4 @@
     min-height: 200px;
 
   }
-}
-
-.iconoPatreon {
-  color:white;
-  font-size: 35px;
-}
-
-.patreon {
-  background-color: rgb(255, 66, 77);
-  color:white;
-  margin-top: 30px;
-}
-
-.patreon:hover {
-  background-color:#ED473D
 }

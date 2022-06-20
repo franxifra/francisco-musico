@@ -4,9 +4,8 @@ import {
   FaSpotify,
   FaInstagram,
   FaYoutube,
-  FaSoundcloud,
   FaApple,
-  FaPatreon
+  FaWhatsapp
 } from "react-icons/fa";
 
 const RedesSociales = () => {
@@ -43,7 +42,14 @@ const RedesSociales = () => {
         >
           <FaYoutube className="icono" />
         </a>
-
+        <a
+          href="https://wa.me/+5491157520600"
+          target="_BLANK"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp className="icono" />
+        </a>
+        
        
         
       </div>

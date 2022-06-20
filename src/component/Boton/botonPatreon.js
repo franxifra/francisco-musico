@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { FaPatreon } from "react-icons/fa";
 
 export const BotonPatreon = () => {
@@ -19,3 +19,4 @@ export const BotonPatreon = () => {
     </a>
   );
 };
+*/
