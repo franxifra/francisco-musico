@@ -11,6 +11,7 @@ import Logo from "./component/Logo/Logo";
 import BuskingIn from "./component/BuskingIn/BuskingIn";
 import ProximosShows from "./component/ProximosShows/ProximosShows";
 // import JumpingDots from "./component/JumpingDots/JumpingDots";
+import { BotonPatreon } from "./component/Boton/botonPatreon";
 
 function App() {
   // donde estoy en este momento:
