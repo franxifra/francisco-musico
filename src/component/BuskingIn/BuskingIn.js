@@ -16,7 +16,7 @@ const BuskingIn = ({ busking, bandera }) => {
 
   return (
     <div className="locationContainer">
-      <p className="currentlyParagraph">Currently busking in:</p>
+      <p className="currentlyParagraph">Currently playing in:</p>
       {busking ? (
         <h2 className="buskingCity">
           <a
