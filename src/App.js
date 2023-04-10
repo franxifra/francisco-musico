@@ -17,8 +17,8 @@ function App() {
   // donde estoy en este momento:
 
   //estados iniciales
-  const [busking, setBusking] = useState("Riva del Garda, Trento");
-  const [bandera, setBandera] = useState("IT");
+  const [busking, setBusking] = useState("Australia");
+  const [bandera, setBandera] = useState("aus");
   const [soundcloudLink, setSoundcloudLink] = useState(
     "https://soundcloud.com/franxifra/sets/busking-2023"
   );
